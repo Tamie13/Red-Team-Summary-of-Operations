@@ -33,15 +33,13 @@
     -  Port 139/TCP Open netbios-ssn
     -  Port 445/TCP Open netbios-ssn
 
-## List Of Critical Vulnerabilities (CVE's and ratings provided when possible)
+## Critical Vulnerabilities
 
-**Vulnerability One**
-
-  -  **Command Used** WordPress User Enumeration Scan:  wpscan --url http://192.168.1.110/wordpress --enumerate u
-
-  -  **Vulnerability** CVE-2017-5487:  Scan enumerates user names and other possibly vulnerable paths and files.
-
-  -  **Rating** Base Score: 5.3 Medium
+-  The following vulnerabilities were identified on the target Machine:
+    -  1.  Wordpress user enumeration;
+    -  2.  Weak user password
+    -  3.  User password hash unsalted
+    -  4.  Able to escalate user privilege to root
 
 As can be seen below the scan was successful in enumerating valid usernames of **Steven & Michael**
 
@@ -49,9 +47,25 @@ As can be seen below the scan was successful in enumerating valid usernames of *
 
 <img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/wpscan%20enumeration%201.png" width="400" height="400"> <img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/wpscan%20enumeration_2.png" width="400" height="400">
 
-**Vulnerability Two**
+## Exploitatoin of Vulnerabilities
 
-  -  **Command Used** Weak user passwords made it possible to guess and SSH into the target machine
+-  Wordpress user enumeration: 
+   - **Command Used** WordPress User Enumeration Scan:  wpscan --url http://192.168.1.110/wordpress --enumerate u
+
+  -  **Vulnerability** CVE-2017-5487:  Scan enumerates user names and other possibly vulnerable paths and files.
+
+  -  **Rating** Base Score: 5.3 Medium
+
+-  Weak user password:
+  -  Weak user passwords made it possible to guess and SSH into the target machine with **Username - Michael**.
+     -  ssh michael@192.168.1.110
+        -  PW = michael
+  -  After login as Michael was able to 'cd' into directories run 'ls' and found **Flag One** in the following directory and file:
+     -  /var/www/html/service.html
+     -  cat service.html
+ 
+  <img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/flag-1.png" width="900" height="400">
+  
 
 ### Exploitation
 
