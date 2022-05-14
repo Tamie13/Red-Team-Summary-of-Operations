@@ -12,7 +12,13 @@
 
 <img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/nmap%20-sS%20-PO%20192.168.1.*.png" width="800" height="800">
 
-### Scan Of Identified Target
+
+### Target Identified
+   
+   -  Name:  Target 1
+   -  IP Address: 192.168.1.110
+
+#### Target Machine Scan
 
 -  Nmap scan results for each machine reveal the below services and OS details:
     -  nmap -sV 192.168.110
@@ -21,23 +27,21 @@
 
 -  The scan above identifies the services below as potential points of entry:
 
-#### Target 1
-
     -  Port 22/TCP Open SSH
     -  Port 80/TCP Open HTTP
     -  Port 111/TCP Open rcpbind
     -  Port 139/TCP Open netbios-ssn
     -  Port 445/TCP Open netbios-ssn
 
--  The following vulnerabilities were identified on each target:
+## LIST OF EXPLOITS AND VULNERABILITIES (CVE's and ratings provided when possible)
 
-#### Target 1
+**Vulnerability / Exploit One:**
 
-**Exploit** WordPress User Enumeration Scan:  wpscan --url http://192.168.1.110/wordpress --enumerate u
+  -  **Exploit** WordPress User Enumeration Scan:  wpscan --url http://192.168.1.110/wordpress --enumerate u
 
-**Vulnerability** CVE-2017-5487:  Scan enumerates user names and other possibly vulnerable paths and files.
+  -  **Vulnerability** CVE-2017-5487:  Scan enumerates user names and other possibly vulnerable paths and files.
 
-**Rating** Base Score: 5.3 Medium
+  -  **Rating** Base Score: 5.3 Medium
 
 (Click On Image/s To Open In Expanded View)
 
