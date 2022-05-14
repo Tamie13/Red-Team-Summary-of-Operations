@@ -15,7 +15,7 @@
 
 ### Target Identified
    
-   -  Name:  Target 1
+   -  Name:  **Target 1**
    -  IP Address: 192.168.1.110
 
 #### Target Machine Scan
@@ -33,15 +33,17 @@
     -  Port 139/TCP Open netbios-ssn
     -  Port 445/TCP Open netbios-ssn
 
-## LIST OF EXPLOITS AND VULNERABILITIES (CVE's and ratings provided when possible)
+## List Of Critical Vulnerabilities (CVE's and ratings provided when possible)
 
-**Vulnerability / Exploit One:**
+**Vulnerability One**
 
-  -  **Exploit** WordPress User Enumeration Scan:  wpscan --url http://192.168.1.110/wordpress --enumerate u
+  -  **Command Used** WordPress User Enumeration Scan:  wpscan --url http://192.168.1.110/wordpress --enumerate u
 
   -  **Vulnerability** CVE-2017-5487:  Scan enumerates user names and other possibly vulnerable paths and files.
 
   -  **Rating** Base Score: 5.3 Medium
+
+As can be seen below the scan was successful in enumerating valid usernames of **Steven & Michael**
 
 (Click On Image/s To Open In Expanded View)
 
