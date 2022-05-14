@@ -1,4 +1,4 @@
-### Red Team: Summary of Operations
+# Red Team: Summary of Operations
 
 ## Table of Contents
 
@@ -48,6 +48,10 @@ As can be seen below the scan was successful in enumerating valid usernames of *
 (Click On Image/s To Open In Expanded View)
 
 <img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/wpscan%20enumeration%201.png" width="400" height="400"> <img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/wpscan%20enumeration_2.png" width="400" height="400">
+
+**Vulnerability Two**
+
+  -  **Command Used** Weak user passwords made it possible to guess and SSH into the target machine
 
 ### Exploitation
 
