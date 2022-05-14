@@ -6,40 +6,42 @@
 -  Critical Vulnerabilities
 -  Exploitation
 
+### Network Scan To Identify All Available Networks:
 
-### Exposed Services
+-  nmap -sS -PO 192.168.1.*
 
-TODO: Fill out the information below.
+<img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/nmap%20-sS%20-PO%20192.168.1.*.png" width="800" height="800">
+
+### Scan Of Identified Target
 
 -  Nmap scan results for each machine reveal the below services and OS details:
+    -  nmap -sV 192.168.110
 
-$ nmap ... # TODO: Add command to Scan Target 1
+<img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/nmap%20-sV%20192.168.1.110.png" width="600" height="600">
 
-TODO: Insert scan output
-
-
--  This scan identifies the services below as potential points of entry:
+-  The scan above identifies the services below as potential points of entry:
 
 #### Target 1
 
--  List of
--  Exposed Services
-
-
-
-TODO: Fill out the list below. Include severity, and CVE numbers, if possible.
+    -  Port 22/TCP Open SSH
+    -  Port 80/TCP Open HTTP
+    -  Port 111/TCP Open rcpbind
+    -  Port 139/TCP Open netbios-ssn
+    -  Port 445/TCP Open netbios-ssn
 
 -  The following vulnerabilities were identified on each target:
 
 #### Target 1
 
--  List of
--  Critical
--  Vulnerabilities
+**Exploit** WordPress User Enumeration Scan:  wpscan --url http://192.168.1.110/wordpress --enumerate u
 
+**Vulnerability** CVE-2017-5487:  Scan enumerates user names and other possibly vulnerable paths and files.
 
+**Rating** Base Score: 5.3 Medium
 
-TODO: Include vulnerability scan results to prove the identified vulnerabilities.
+(Click On Image/s To Open In Expanded View)
+
+<img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/wpscan%20enumeration%201.png" width="400" height="400"> <img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/wpscan%20enumeration_2.png" width="400" height="400">
 
 ### Exploitation
 
