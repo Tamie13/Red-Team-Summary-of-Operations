@@ -75,7 +75,7 @@ As can be seen below the scan was successful in enumerating valid usernames of *
 
 <img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/flag-1.png" width="900" height="400">
 <img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/MySQL_PW.png" width="400" height="400"> 
-<img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/flag%202.png" width="600" height="100">
+<img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/flag%202.png">
      
      
 ### Login To MySQL Database
