@@ -61,10 +61,10 @@ As can be seen below the scan was successful in enumerating valid usernames of *
      -  ssh michael@192.168.1.110
         -  PW = michael
   -  After login as Michael was able to traverse through directories and files where and found **Flag One & Flag Two** (Image/s Below):
-     - Flag One = b9bbcb33ellb80be759c4e844862482d  
+     - Flag1 = b9bbcb33ellb80be759c4e844862482d  
        -  /var/www/html/service.html
        -  nano service.html
-     - Flag Two = fc3fd58dcdad9ab23faca6e9a3e581c
+     - Flag2 = fc3fd58dcdad9ab23faca6e9a3e581c
        -  /var/www/
        -  ls
        -  cat flag2.txt
