@@ -10,7 +10,7 @@
 
 -  nmap -sS -PO 192.168.1.*
 
-<img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/nmap%20-sS%20-PO%20192.168.1.*.png" width="800" height="800">
+<img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/nmap%20-sS%20-PO%20192.168.1.*.png">
 
 
 ### Target Identified
@@ -23,7 +23,7 @@
 -  Nmap scan results for each machine reveal the below services and OS details:
     -  nmap -sV 192.168.110
 
-<img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/nmap%20-sV%20192.168.1.110.png" width="600" height="600">
+<img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/nmap%20-sV%20192.168.1.110.png">
 
 -  The scan above identifies the services below as potential points of entry:
 
