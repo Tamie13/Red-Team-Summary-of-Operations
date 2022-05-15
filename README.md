@@ -73,8 +73,10 @@ As can be seen below the scan was successful in enumerating valid usernames of *
      -  nano wp-config.php
      -  MySQL DB PW: R@v3nSecurity
 
-<img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/flag-1.png" width="900" height="400">
-<img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/MySQL_PW.png" width="400" height="400"> 
+<img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/flag-1.png">
+
+<img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/MySQL_PW.png"> 
+
 <img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/flag%202.png">
      
      
@@ -95,13 +97,14 @@ As can be seen below the scan was successful in enumerating valid usernames of *
         -  Command: john wp_hashes.txt
         -  PW = *pink84*
 
-<img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/mysql%20show%20database.png" width="300" height="300"> <img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/use%20wordpress.png" width="300" height="300"> 
-<img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/flag%203.png" width="900" height="300">
-<img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/select%20*%20from%20wp_users.png" width="900" height="200">
-<img src="" width="" height="">
-<img src="" width="" height="">
-<img src="" width="" height="">
-<img src="" width="" height="">
+<img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/mysql%20show%20database.png"> 
+
+<img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/use%20wordpress.png"> 
+
+<img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/flag%203.png">
+
+<img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/select%20*%20from%20wp_users.png">
+
 
 ### Able to establish user shell on target machine
   -  Logged in using **Steven** credentials
